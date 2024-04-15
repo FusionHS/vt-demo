@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: vt-demo
+
+  threads:
+    virtual:
+      enabled: true
