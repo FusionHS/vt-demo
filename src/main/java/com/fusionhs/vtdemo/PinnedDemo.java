@@ -30,7 +30,11 @@ public class PinnedDemo {
 
     @SneakyThrows
     /**
-     * Using the following config: -Djdk.tracePinnedThreads=full -Djdk.virtualThreadScheduler.parallelism=2 -Djdk.virtualThreadScheduler.maxPoolSize=1 -Djdk.virtualThreadScheduler.minRunnable=1
+     * Using the following config:
+     * -Djdk.tracePinnedThreads=full
+     * -Djdk.virtualThreadScheduler.parallelism=2
+     * -Djdk.virtualThreadScheduler.maxPoolSize=1
+     * -Djdk.virtualThreadScheduler.minRunnable=1
      */
     static void twoEmployeesInTheOffice() {
         var riccardo = goToTheWc();
@@ -54,7 +58,7 @@ public class PinnedDemo {
 
 
     static class Bathroom {
-        synchronized void useTheWc() throws InterruptedException {
+        void useTheWc() throws InterruptedException {
             log.info("I'm going to use the WC");
             sleep(Duration.ofSeconds(1L));
             log.info("I'm done with the WC");
