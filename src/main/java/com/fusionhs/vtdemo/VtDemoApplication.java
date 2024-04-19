@@ -57,6 +57,8 @@ public class VtDemoApplication {
     }
 
     /**
+     * <p>Using <code>synchronized</code> can pina virtual thread to a platform thread</p>
+     *
      * <p>It’s not an error but a behavior that limits the application’s scalability. Note that if a carrier thread is pinned, the JVM can always add a new platform thread to the carrier pool if the configurations of the carrier pool allow it</p>
      * <p>Fortunately, there are only two cases in which a virtual thread is pinned to the carrier thread:
      *
@@ -78,6 +80,9 @@ public class VtDemoApplication {
         return i;
     }
 
+    /**
+     * It's better to us an ReentrantLock to handle such cases
+     */
     private int lockedMethod(int i) {
         lock.lock();
         try {

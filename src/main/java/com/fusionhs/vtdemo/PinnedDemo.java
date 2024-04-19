@@ -11,7 +11,6 @@ import static java.lang.Thread.sleep;
 public class PinnedDemo {
     static Bathroom bathroom = new Bathroom();
 
-
     private static Thread virtualThread(String name, Runnable runnable) {
         return Thread.ofVirtual()
                 .name(name)
@@ -30,6 +29,9 @@ public class PinnedDemo {
     }
 
     @SneakyThrows
+    /**
+     * Using the following config: -Djdk.tracePinnedThreads=full -Djdk.virtualThreadScheduler.parallelism=2 -Djdk.virtualThreadScheduler.maxPoolSize=1 -Djdk.virtualThreadScheduler.minRunnable=1
+     */
     static void twoEmployeesInTheOffice() {
         var riccardo = goToTheToilet();
         var daniel = takeABreak();
